@@ -1,0 +1,45 @@
+#d1 {
+    height: 50px;
+    background-color: gainsboro
+}
+#d2 {
+    width: 280px;
+    height: 500px;
+    float: left;
+    background-color: antiquewhite
+}
+#d3 {
+    width: 720px;
+    float: left;
+    height: 500px;
+    background-color: beige
+}
+.tab {
+    width: 280px;
+    height: 120px;
+    border-width: thin;
+    margin-top: 0px;
+}
+.tab td {
+    border: 1px solid lightgreen;
+    color: black;
+    background-color: lightgreen;
+    font-size: 26px;
+    text-align: center;
+}
+.tab2 {
+    width: 720px;
+    height: 120px;;
+}
+.tab2 th {
+    border: 1px solid black;
+    color: black;
+    background-color: lightgreen;
+    text-align: center;
+}
+.tab2 td {
+    border: 1px solid black;
+    color: black;
+    background-color: gainsboro;
+    text-align: center;
+}
