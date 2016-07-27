@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>Zxmals's Test</title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <link rel="stylesheet" type="text/css" href="css/div.css">
+        <script type="text/javascript" src="jquery/jquery.js" ></script>
+        <script type="text/javascript">
+            function change(obj) {
+                obj.style.background = '#adff2f';
+            }
+            function out(obj) {
+                obj.style.background = '#87CEEB';
+            }
+            function onloads() {
+//                alert("in");
+                var tab = document.getElementById("tab22");
+                var row = tab.getElementsByTagName("tr");
+                for(var i=0;i<row.length;i++){
+                    if((i+1)%2==0){
+                        row[i].className = "trblack";
+                    }
+                }
+            }
+            setelement();
+            var userid;
+            var username;
+            var num;
+            function setelement() {
+                var url = location.search;
+                url = url.substring(1,url.length);
+                var array = url.split("&");
+                var aarray = new Array();
+                for(var i=0;i<array.length;i++){
+                    aarray[i] = array[i].split("=");
+                }
+                for(var i=0;i<array.length;i++){
+                    for(var j=0;j<2;j++){
+                        if(aarray[i][j]=="userid")
+                            userid = aarray[i][++j];
+                        if(aarray[i][j]=="username")
+                            username = aarray[i][++j];
+                        if(aarray[i][j]=="num")
+                            num = aarray[i][++j];
+                    }
+                }
+//                alert("id:"+userid+" name:"+username+" num:"+num);
+            }
+            function dosth() {
+                alert(" . . . . . . ");
+            }
+            $(document).ready(function(){
+                var str = "<tr><td>"+num+"</td><td><a href='#' onclick='dosth()' style='text-decoration:none;'>【查看】</a></td>" +
+                        "<td><a href='#' onclick='dosth()' style='text-decoration:none;'>【修改】</a></td>" +
+                        "<td><a href='#' style='text-decoration:none;' onclick='deleterow("+num+")'>【删除】</a></td><td>"+userid+"</td><td>"+username+"</td></tr>";
+                if(userid!=""&userid!=null&username!=""&username!=null&num!=""&num!=null)
+                    $("#tab22").append(str);
+                else{
+                    if(!((userid!=""&username!=""&num!="")||(num!=null&userid!=null&username!=null))) {
+                        if (num == "" || num == null) {
+                            alert("序号不合法");
+                            return;
+                        }
+                        if (userid == "" || userid == null) {
+                            alert("用户ID不合法");
+                            return;
+                        }
+                        if (username == "" || username == null) {
+                            alert("用户名不合法");
+                            return;
+                        }
+                    }
+                }
+                onloads();
+            });
+            function deleterow(numid) {
+                var tab = document.getElementById("tab22");
+                var row = tab.getElementsByTagName("tr");
+                for(var i=0;i<tab.rows.length;i++)
+                    for(var j=0;j<6;j++)
+                        if(row[i].cells[j].innerText==numid)
+                            tab.deleteRow(i);
+            }
+        </script>
+    </head>
+    <body onload="onloads()">
+        <div style="width: 1000px;margin-top: 50px;margin-left: 200px;">
+            <div id="d1">
+                <div style="padding: 15px;margin-left: 50px">
+                    <form action="" method="post">
+                        账号/姓名:<input name="userid" type="text">
+                        <input type="submit" value="查询">
+                        <input type="button" value="新增" onclick="window.location.replace('Second.html')">
+                    </form>
+                </div>
+            </div>
+            <div id="d2">
+                <table class="tab">
+                    <tr>
+                        <td id="kf" onmouseover="change(this)" onmouseout="out(this)"><a href="#" style="text-decoration:none;">开发部</a></td>
+                    </tr>
+                    <tr>
+                        <td id="cs" onmouseover="change(this)" onmouseout="out(this)"><a href="#" style="text-decoration:none;">测试部</a></td>
+                    </tr>
+                </table>
+            </div>
+            <div id="d3">
+                <table class="tab2" id="tab22">
+                    <tr>
+                        <th>序号</th>
+                        <th>查看</th>
+                        <th>修改</th>
+                        <th>删除</th>
+                        <th>姓名</th>
+                        <th>账号</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td><a href="#" onclick="dosth()" style="text-decoration:none;">【查看】</a></td>
+                        <td><a href="#" onclick="dosth()" style="text-decoration:none;">【修改】</a></td>
+                        <td><a href="#" style="text-decoration:none;" onclick="deleterow('1')">【删除】</a></td>
+                        <td>aaa</td>
+                        <td>3200001</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><a href="#" onclick="dosth()" style="text-decoration:none;">【查看】</a></td>
+                        <td><a href="#" onclick="dosth()" style="text-decoration:none;">【修改】</a></td>
+                        <td><a href="#" style="text-decoration:none;" onclick="deleterow('2')">【删除】</a></td>
+                        <td>bbb</td>
+                        <td>3200002</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><a href="#" onclick="dosth()" style="text-decoration:none;">【查看】</a></td>
+                        <td><a href="#" onclick="dosth()" style="text-decoration:none;">【修改】</a></td>
+                        <td><a href="#" style="text-decoration:none;" onclick="deleterow('3')">【删除】</a></td>
+                        <td>ccc</td>
+                        <td>3200003</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

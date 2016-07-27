@@ -2,76 +2,90 @@
         "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
-        <title>Zxmals's Test</title>
+        <title>add-Pro</title>
         <meta http-equiv="content-type" content="text/html;charset=utf-8">
         <link rel="stylesheet" type="text/css" href="css/div.css">
-        <script type="text/javascript" src="jquery/jquery-2.0.0.js" ></script>
+        <script type="text/javascript" src="jquery/jquery.js" ></script>
         <script type="text/javascript">
-            function change(obj) {
-                obj.style.background = '#adff2f';
+            function checkpwd() {
+                var p1 = document.getElementById("pwd1").value;
+                var p2 = $.trim(document.getElementById("pwd2").value);
+                if(p1!=p2){
+                    alert("两次密码输入不一致");
+                    document.getElementById("pwd2").value = "";
+                }
             }
-            function out(obj) {
-                obj.style.background = 'lightgreen';
+
+            function checknull() {
+                var id = $.trim(document.getElementById("userid").value);
+                var name = $.trim(document.getElementById("username").value);
+                var p1 = $.trim(document.getElementById("pwd1").value);
+                var p2 = $.trim(document.getElementById("pwd2").value);
+                if(id==""){
+                    alert("用户ID不能为空/空格");
+                    return;
+                }
+                if(name==""){
+                    alert("用户姓名不能为空/空格");
+                    return;
+                }
+                if(p1==""){
+                    alert("口令不能为空/空格");
+                    return;
+                }
+                if(p2==""){
+                    alert("确认口令不能为空/空格");
+                    return;
+                }
+                document.f.submit();
             }
         </script>
     </head>
     <body>
-        <div style="width: 1000px;margin-top: 50px;margin-left: 200px;">
-            <div id="d1">
-                <div style="padding: 15px;text-align: center">
-                    <form action="" method="post">
-                        账号/姓名:<input name="userid" type="text">
-                        <input type="submit" value="查询">
-                        <input type="button" value="新增" onclick="">
-                    </form>
-                </div>
-            </div>
-            <div id="d2">
-                <table class="tab">
-                    <tr>
-                        <td id="kf" onmouseover="change(this)" onmouseout="out(this)">开发部</td>
-                    </tr>
-                    <tr>
-                        <td id="cs" onmouseover="change(this)" onmouseout="out(this)">测试部</td>
-                    </tr>
-                </table>
-            </div>
-            <div id="d3">
-                <table class="tab2">
-                    <tr>
-                        <th>序号</th>
-                        <th>查看</th>
-                        <th>修改</th>
-                        <th>删除</th>
-                        <th>姓名</th>
-                        <th>账号</th>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td><a href="">【查看】</a></td>
-                        <td><a href="">【修改】</a></td>
-                        <td><a href="">【删除】</a></td>
-                        <td>aaa</td>
-                        <td>3200001</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td><a href="">【查看】</a></td>
-                        <td><a href="">【修改】</a></td>
-                        <td><a href="">【删除】</a></td>
-                        <td>bbb</td>
-                        <td>3200002</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td><a href="">【查看】</a></td>
-                        <td><a href="">【修改】</a></td>
-                        <td><a href="">【删除】</a></td>
-                        <td>ccc</td>
-                        <td>3200003</td>
-                    </tr>
-                </table>
-            </div>
+        <div style="margin-top: 60px;margin-left: 320px">
+                <form action="First.html" method="get" name="f">
+                    <table class="stab">
+                        <tr>
+                            <td class="tdtype"><span>*</span>用户ID</td>
+                            <td><input type="text" name="userid" id="userid"></td>
+                            <td class="tdtype"><span>*</span>口令</td>
+                            <td><input type="password" name="pwd1" id="pwd1"></td>
+                            <td class="tdtype"><span>*</span>确认口令</td>
+                            <td><input type="password" name="pwd2" id="pwd2" onchange="checkpwd()"></td>
+                        </tr>
+                        <tr>
+                            <td class="tdtype"><span>*</span>姓名</td>
+                            <td><input type="text" name="username" id="username" ></td>
+                            <td class="tdtype">性别</td>
+                            <td>
+                                <select name="sex">
+                                    <option value="male">男</option>
+                                    <option value="female">女</option>
+                                    <option value="other">其他</option>
+                                    <option value="other" selected="selected"></option>
+                                </select>
+                            </td>
+                            <td class="tdtype">部门</td>
+                            <td>
+                                <select name="depart">
+                                    <option value="dev">开发</option>
+                                    <option value="test">测试</option>
+                                    <option value="" selected="selected"></option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tdtype">出生日期</td>
+                            <td><input type="text" name="birthdate"></td>
+                            <td class="tdtype">排序号</td>
+                            <td><input type="text" name="num"></td>
+                            <td class="tdtype">禁用</td>
+                            <td><input type="checkbox" name="jy"></td>
+                        </tr>
+                    </table>
+                </form>
+            <input style="margin-left: 350px" type="submit" value="保存" onclick="checknull()">
+            <input type="button" value="返回" onclick="window.location.replace('First.html')">
         </div>
     </body>
 </html>
