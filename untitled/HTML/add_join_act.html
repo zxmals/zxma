@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>Title</title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <link rel="stylesheet" type="text/css" href="../css/zxma.css">
+        <script type="text/javascript" src="../js/eye-all.js"></script>
+        <script type="text/javascript" src="../js/jquery.js"></script>
+        <script type="text/javascript" src="../js/eye-base.js"></script>
+        <script type="text/javascript">
+            function downsearch() {
+                var btn = document.getElementById("datep");
+                btn.style.border = "2px inset";
+            }
+            function upsearch() {
+                var btn = document.getElementById("datep");
+                btn.style.border = "1px outset";
+                var foredate = document.getElementById("date1").value;
+                var afterdate = document.getElementById("date2").value;
+                if(foredate==""||afterdate==""||afterdate<foredate){
+                    alert("请正确的选择日期！");
+                    return;
+                }
+                alert(foredate+"|-|-|-|"+afterdate);
+            }
+        </script>
+    </head>
+    <body>
+        <div class="datepick">
+            <span>选择日期范围</span>
+            <div>
+                <form action="" method="post">
+                    从:<input type="text"  id="date1" style="width: 116px;" onClick="eye.datePicker.show(this);" readonly="readonly" />到:<input type="text"  id="date2" style="width: 116px;" onClick="eye.datePicker.show(this);" readonly="readonly" />
+                    &nbsp;&nbsp;<input type="button" id="datep" value="查寻" title="点击查询" onmousedown="downsearch()" onmouseup="upsearch()">
+                </form>
+            </div>
+        </div>
+        <div class="chooseact"></div>
+    </body>
+</html>
