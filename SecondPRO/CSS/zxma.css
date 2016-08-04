@@ -4,19 +4,22 @@
     /*#C1D7D7*/
     background-color: white;
     text-align: center;
-    padding-top: 300px;
+    padding-top: 260px;
 }
 .loginc div {
-    background-color: #e2f8f8;
+    background-color: #ddf2f2;
     margin-left: auto;
     margin-right: auto;
     width: 28%;
     height: 32%;
-    padding-top: 35px;
+}
+.loginc #outd {
+    border: 1px dashed cadetblue;
 }
 #uid {
     width: 70%;
-    height: 30px;
+    height: 43px;
+    padding-top: 10px;
 }
 #uid label {
     float: left;
@@ -34,7 +37,7 @@
 }
 #pwd {
     width: 70%;
-    height: 30px;
+    height: 53px;
 }
 #pwd label {
     margin-left: 17%;
@@ -62,4 +65,9 @@
     font-weight: 600;
     font-size: 18px;
     border: thin outset;
+}
+#dtitle {
+    width: 100%;
+    height: 90px;
+    background-color: #e0f5f5;
 }
