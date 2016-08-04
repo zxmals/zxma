@@ -1,12 +1,65 @@
 .loginc {
     width: 100%;
     height: 900px;
-    text-align: center;
     /*#C1D7D7*/
-    background-color: #e2fafa;
+    background-color: white;
+    text-align: center;
+    padding-top: 300px;
 }
 .loginc div {
-    background-color: #C1D7D7;
+    background-color: #e2f8f8;
+    margin-left: auto;
+    margin-right: auto;
+    width: 28%;
+    height: 32%;
+    padding-top: 35px;
+}
+#uid {
+    width: 70%;
+    height: 30px;
+}
+#uid label {
+    float: left;
+    margin-left: 17%;
+    font-family: 楷体;
+    font-weight: 600;
+    font-size: 18px;
+}
+#uid input {
+    float: left;
+    width:47%;
+    height: 20px;
+    border: thick;
+    border-bottom:1px solid chartreuse;
+}
+#pwd {
+    width: 70%;
+    height: 30px;
+}
+#pwd label {
+    margin-left: 17%;
+    float: left;
+    font-family: 楷体;
+    font-weight: 600;
+    font-size: 18px;
+}
+#pwd input {
+    float: left;
+    width:47%;
+    height: 20px;
+    border: thin;
+    border-bottom:1px solid chartreuse;
+}
+#sub {
+    width: 70%;
+    height: 60px;
+}
+#sub button {
     width: 30%;
-    height: 5%;
+    height: 30px;
+    background-color:#87fa92;
+    font-family: 楷体;
+    font-weight: 600;
+    font-size: 18px;
+    border: thin outset;
 }
