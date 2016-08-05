@@ -10,10 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.T_USER;
+import dao.T_DEPARTDAO;
 import dao.T_USERDao;
 
 public class Login extends HttpServlet {
 	private T_USERDao userdao = new T_USERDao();
+	private T_DEPARTDAO departdao = new T_DEPARTDAO();
 	/**
 	 * The doGet method of the servlet. <br>
 	 *
@@ -56,6 +58,7 @@ public class Login extends HttpServlet {
 				System.out.println("login success");
 				session.setAttribute("login_inf", user);
 				session.setAttribute("user", userdao.getUser());
+				session.setAttribute("depart", departdao.getT_DEPART());
 				dispatcher = req.getRequestDispatcher("successlg.jsp");
 				dispatcher.forward(req, rep);
 			}

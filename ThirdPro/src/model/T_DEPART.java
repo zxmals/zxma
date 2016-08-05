@@ -24,6 +24,12 @@ public class T_DEPART {
 		SFJY = sFJY;
 		PXH = pXH;
 	}
+	
+	public T_DEPART(String bMDM, String bMMC) {
+		super();
+		BMDM = bMDM;
+		BMMC = bMMC;
+	}
 
 	public String getBMDM() {
 		return BMDM;

@@ -56,7 +56,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </script>
     </head>
     <body onload="onloads()">
-        <div style="width: 1000px;margin-top: 50px;margin-left: 200px;">
+        <div style="width: 1400px;margin-top: 50px;margin-left: 100px;">
             <div id="d1">
                 <div style="padding: 15px;margin-left: 50px">
                     <form action=""  method="post">
@@ -69,12 +69,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
             <div id="d2">
                 <table class="tab">
-                    <tr>
-                        <td id="32010004" onmouseover="change(this)" onmouseout="out(this)" onclick="clickchange(this.id)"><a href="#" style="text-decoration:none;">开发部</a></td>
-                    </tr>
-                    <tr>
-                        <td id="32010003" onmouseover="change(this)" onmouseout="out(this)" onclick="clickchange(this.id)"><a href="#" style="text-decoration:none;">测试部</a></td>
-                    </tr>
+                	<c:forEach items="${depart }" var="li">
+                		 <tr>
+                        	<td id="${li.BMDM }" onmouseover="change(this)" onmouseout="out(this)" onclick="clickchange(this.id)"><a href="#" style="text-decoration:none;">${li.BMMC }</a></td>
+                    	</tr>
+                	</c:forEach>                    
                 </table>
             </div>
             <div id="d3">
