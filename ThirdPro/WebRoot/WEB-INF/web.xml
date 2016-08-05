@@ -1,27 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
-  <display-name>ThirdPro</display-name>
-  
-  <welcome-file-list>
-    <welcome-file>login.jsp</welcome-file>
-  </welcome-file-list>
-  <!-- for login -->
-  <servlet>    
-    <servlet-name>Login</servlet-name>
-    <servlet-class>Servlet.Login</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Login</servlet-name>
-    <url-pattern>/login</url-pattern>
-  </servlet-mapping>
-  <!-- for logout -->
-  <servlet>
-    <servlet-name>logout</servlet-name>
-    <servlet-class>Servlet.logout</servlet-class>
-  </servlet>  
-  <servlet-mapping>
-    <servlet-name>logout</servlet-name>
-    <url-pattern>/logout</url-pattern>
-  </servlet-mapping>
-  
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+	<display-name>ThirdPro</display-name>
+
+	<welcome-file-list>
+		<welcome-file>login.jsp</welcome-file>
+	</welcome-file-list>
+
+	<!-- ********************************** Filter *********************************** -->
+	<!-- login-filter -->
+	<filter>
+		<filter-name>LgoinFilter</filter-name>
+		<filter-class>Filter.FiltersLogin</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>LgoinFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!--  encoding-filter  -->
+	<filter>
+		<filter-name>encodingfilter</filter-name>
+		<filter-class>Filter.EncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>utf-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>ContentType</param-name>
+			<param-value>text/html;charset=utf-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingfilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- ********************************** Servlet *********************************** -->
+	<!-- for login -->
+	<servlet>
+		<servlet-name>Login</servlet-name>
+		<servlet-class>Servlet.Login</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Login</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+	<!-- for logout -->
+	<servlet>
+		<servlet-name>logout</servlet-name>
+		<servlet-class>Servlet.logout</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>logout</servlet-name>
+		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
+
 </web-app>

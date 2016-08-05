@@ -43,7 +43,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="loginc">           
 	            	<div id="outd">
 	                	<div id="dtitle"></div>
-	                	 <form action="login" method="post"  name="ls" >
+	                	 <form action="login" method="get"  name="ls" >
 			                <div id="uid">
 			                    <label>账号:</label><input type="text" name="userid"  id="userid">
 			                </div>
@@ -52,7 +52,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			                </div>
 		                </form>
 		                <div id="sub">
-		                    <button id="btn" onmousedown="downlog()" onmouseup="uplog()" onclick="checkf()">登录</button>
+		                    <button id="btn" onmousedown="downlog()" onmouseup="uplog()" onclick="checkf()">登&nbsp;&nbsp;&nbsp;录</button>
 		                </div>
 	            	</div>            
         </div>

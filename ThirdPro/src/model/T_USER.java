@@ -1,6 +1,6 @@
 package model;
 
-public class T_USER {
+public class T_USER{
 
 	private String YHDM;
 	private String DWDM;

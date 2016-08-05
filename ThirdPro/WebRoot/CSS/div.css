@@ -20,7 +20,7 @@
     margin-top: 0px;
 }
 .tab td {
-    border: 1px solid black;
+    border: thin;
     color: black;
     background-color: #87CEEB;
     height: 70px;
@@ -32,21 +32,24 @@
     border-collapse: collapse;
 }
 .tab2 th {
-    border: 1px solid black;
+    border-left: 1px solid #b1f5f8;
+    border-right: 1px solid #b1f5f8;
     color: black;
     height: 35px;
     background-color: #87CEEB;
     text-align: center;
 }
 .tab2 td {
-    border: 1px solid black;
+    border-left: 1px solid #b1f5f8;
+    border-right: 1px solid #b1f5f8;
     color: black;
     height: 31px;
     background-color: #FFFFFF;
     text-align: center;
 }
 .tab2 .tr1 td {
-    border: 1px solid black;
+     border-left: 1px solid #b1f5f8;
+    border-right: 1px solid #b1f5f8;
     color: black;
     background-color: #BFBFBF;
     text-align: center;
@@ -55,7 +58,8 @@
 
 }
 .trblack td {
-    border: 1px solid black;
+     border-left: 1px solid #b1f5f8;
+    border-right: 1px solid #b1f5f8;
     color: black;
     background-color: #BFBFBF;
     text-align: center;

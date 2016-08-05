@@ -45,11 +45,11 @@ public class Login extends HttpServlet {
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse rep)
 			throws ServletException, IOException {
-		req.setCharacterEncoding("utf-8");
+//		req.setCharacterEncoding("utf-8");
 		String u_name = (String)req.getParameter("userid").trim();
-		String u_pwd = (String)req.getParameter("password").trim();		
+		String u_pwd = (String)req.getParameter("password").trim();
 		RequestDispatcher dispatcher = null;
-		rep.setContentType("text/html;charset=utf-8");
+//		rep.setContentType("text/html;charset=utf-8");
 		HttpSession session = req.getSession();
 		System.out.println("account:"+u_name+"\t pwd:"+u_pwd);
 		T_USER user = userdao.findByUsername(u_name);
@@ -63,14 +63,14 @@ public class Login extends HttpServlet {
 				dispatcher.forward(req, rep);
 			}
 			else{
-				System.out.println("密码错误");
-				req.setAttribute("lgstatus", "密码错误！");
+				System.out.println("密码不匹配");
+				req.setAttribute("lgstatus", "密码不匹配！");
 				dispatcher = req.getRequestDispatcher("login.jsp");
 				dispatcher.forward(req, rep);
 			}
 		}
 		else{
-			System.out.println("用户未找到！");
+			System.out.println("用户未找到");
 			req.setAttribute("lgstatus", "用户未找到！");
 			dispatcher = req.getRequestDispatcher("login.jsp");
 			dispatcher.forward(req, rep);

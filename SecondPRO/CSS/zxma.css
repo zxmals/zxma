@@ -24,8 +24,7 @@
 #uid label {
     float: left;
     margin-left: 17%;
-    font-family: 楷体;
-    font-weight: 600;
+    color: #9fa6cb;
     font-size: 18px;
 }
 #uid input {
@@ -42,8 +41,7 @@
 #pwd label {
     margin-left: 17%;
     float: left;
-    font-family: 楷体;
-    font-weight: 600;
+    color: #c0c7ee;
     font-size: 18px;
 }
 #pwd input {
@@ -58,13 +56,14 @@
     height: 60px;
 }
 #sub button {
-    width: 30%;
-    height: 30px;
+    width: 25%;
+    height: 36px;
     background-color:#87fa92;
-    font-family: 楷体;
+    font-size: 14px;
     font-weight: 600;
-    font-size: 18px;
-    border: thin outset;
+    color: #c3b8ff;
+    border: thin dashed #c3b8ff;
+    border-radius: 11px;
 }
 #dtitle {
     width: 100%;

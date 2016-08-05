@@ -14,7 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <script type="text/javascript" src="js/jquery.js" ></script>
         <script type="text/javascript">
             function change(obj) {
-                obj.style.background = '#adff2f';
+                obj.style.background = '#b7e0f2';
             }
             function out(obj) {
                 obj.style.background = '#87CEEB';
@@ -28,8 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         row[i].className = "trblack";
                     }
                 }
-            }
-            
+            }            
             $(document).ready(function(){    	              
             });
             
