@@ -59,8 +59,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div id="d1">
                 <div style="padding: 15px;margin-left: 50px">
                     <form action=""  method="post">
-                        账号/姓名:<input name="userid" type="text">
-                        <input type="submit" value="查询">
+                        账号/姓名:<input name="userid" type="text"   id="search">
+                        <input type="submit" value="查询" >
                         <input type="button" value="新增" onclick="window.location.replace('Second.html')">
                         <span style="margin-left: 300px;margin-bottom: 20px">欢迎${login_inf.YHXM }登录 : 测试  <a href="logout"  style="color: green;text-decoration: none">注销</a></span>
                     </form>                    
