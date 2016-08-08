@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>TestModal</title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <!--  必须导入的样式文件  -->
+        <link rel="stylesheet" type="text/css" href="css/leanModalCss.css" />
+        <!--  摸态框格式的样式文件，可以自定义.(主体框，样式设置必须为隐藏) -->
+        <link rel="stylesheet" type="text/css" href="css/modaldialog.css" />
+        <!--  必须导入的js文件-->
+        <script type="text/javascript" src="jquery/jquery.js"></script>
+        <script type="text/javascript" src="jquery/jquery.leanModal.min.js" ></script>
+        <!--  引入摸态框-->
+        <script type="text/javascript">
+            /*引入摸态框(其中设置了关闭按钮:closeButton,参数可以为空如：.leanModal())*/
+            $(document).ready(function () {
+                $('a[rel*=leanModal]').leanModal({ top: 200, closeButton: ".close_modal" });
+            });
+        </script>
+    </head>
+    <body>
+    <!--  在页面内引用的方式-->
+        <a style="position: absolute;top: 260px;left: 500px;text-decoration: none" rel="leanModal" href="#example">TestModal</a>
+    <!--  摸态框主体-->
+        <div id="example">
+            <div id="title">
+                <label>title</label>
+            </div>
+            <a class="modal_close" href="#"></a>
+            <div id="name" class="mainbody">
+                div1
+            </div>
+            <div id="password" class="mainbody">
+                div2
+            </div>
+            <div id="depart" class="mainbody">
+                div3
+            </div>
+            <div id="operate">
+                <button class="modal_submit btn">提交</button>
+                <button class="btn modal_close close_modal">关闭</button>
+            </div>
+        </div>
+    </body>
+</html>
