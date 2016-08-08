@@ -24,15 +24,15 @@ public class FiltersLogin implements Filter {
 		HttpServletRequest reqs = (HttpServletRequest)req;
 		HttpSession session = reqs.getSession();
 		String servletpath = reqs.getServletPath();
-		System.out.println("----------------loginfilter--------"+servletpath+"-------------------------------");
+//		System.out.println("----------------loginfilter--------"+servletpath+"-------------------------------");
 		Object o = session.getAttribute("login_inf");
 		if(o!=null||"/login".equals(servletpath)||servletpath.contains(".css")||servletpath.contains(".js")){
 			chain.doFilter(req, rep);
-			System.out.println("pass.........");
+//			System.out.println("pass.........");
 		}
 		else{
 			reqs.getRequestDispatcher("login.jsp").forward(req, rep);
-			System.out.println("rejected..........'");
+//			System.out.println("rejected..........'");
 		}
 	}
 

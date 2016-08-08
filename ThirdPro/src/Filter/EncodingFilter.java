@@ -14,13 +14,16 @@ import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
+import javax.servlet.ServletRequestWrapper;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequestWrapper;
 
 public class EncodingFilter implements Filter {
 
 	private String encoding;
 	private String ContentType;
+	private Map<String, Object> param = new HashMap<String, Object>();
 	public void destroy() {
 		// TODO Auto-generated method stub
 
@@ -29,8 +32,8 @@ public class EncodingFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
 		// TODO Auto-generated method stub
-		Map<String, Object> param = new HashMap<String, Object>();
 		HttpServletRequest req = (HttpServletRequest)request;
+		//指定 转向页面的编码 contentType
 		response.setContentType(ContentType);
 		if("POST".equals(req.getMethod())){
 			request.setCharacterEncoding(encoding);
@@ -40,15 +43,31 @@ public class EncodingFilter implements Filter {
 			param = req.getParameterMap();
 			if("GET".equals(req.getMethod())){
 				for(Map.Entry<String, Object> e:param.entrySet()){
-					req.removeAttribute(e.getKey());
 					try {
-						req.setAttribute(e.getKey(), arraytoString(e.getValue()));
+						e.setValue(arraytoString(e.getValue()));
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
+					}					
+				}
+				/*替换掉原有的map*/
+				// error-log not ServletRequestWrapper
+				class AnoRequest extends HttpServletRequestWrapper{
+					public AnoRequest(HttpServletRequest request) {
+						super(request);
+						// TODO Auto-generated constructor stub
+					}
+					@Override
+					public String getParameter(String name) {
+						// TODO Auto-generated method stub
+						if(param.isEmpty())
+							return null;
+						else
+							return (String)param.get(name);
 					}
 				}
-				chain.doFilter(request, response);
+				//制定 新写的request的子类（实际上只为了制定getParameter()）
+				chain.doFilter(new AnoRequest(req), response);
 			}
 			else{
 				chain.doFilter(request, response);
@@ -56,6 +75,12 @@ public class EncodingFilter implements Filter {
 		}
 	}
 
+	/**
+	 * 转码
+	 * @param o 源生码 String[] 字符串数据组结构
+	 * @return  utf-8 码
+	 * @throws Exception
+	 */
 	public String arraytoString(Object o) throws Exception{
 		String array[] = (String[])o;
 		for(int i=0;i<array.length;i++){

@@ -43,7 +43,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="loginc">           
 	            	<div id="outd">
 	                	<div id="dtitle"></div>
-	                	 <form action="login" method="get"  name="ls" >
+	                	 <form action="login" method="post"  name="ls" >
 			                <div id="uid">
 			                    <label>账号:</label><input type="text" name="userid"  id="userid">
 			                </div>

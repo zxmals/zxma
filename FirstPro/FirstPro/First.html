@@ -5,7 +5,10 @@
         <title>Zxmals's Test</title>
         <meta http-equiv="content-type" content="text/html;charset=utf-8">
         <link rel="stylesheet" type="text/css" href="css/div.css">
-        <script type="text/javascript" src="jquery/jquery.js" ></script>
+        <link rel="stylesheet" type="text/css" href="css/leanModalCss.css" />
+        <link rel="stylesheet" type="text/css" href="css/modaldialog.css" />
+        <script type="text/javascript" src="jquery/jquery.js"></script>
+        <script type="text/javascript" src="jquery/jquery.leanModal.min.js" ></script>
         <script type="text/javascript">
             function change(obj) {
                 obj.style.background = '#adff2f';
@@ -73,6 +76,7 @@
                     }
                 }
                 onloads();
+                $('a[rel*=leanModal]').leanModal({ top: 200, closeButton: ".close_modal" });
             });
             function deleterow(numid) {
                 var tab = document.getElementById("tab22");
@@ -85,7 +89,7 @@
         </script>
     </head>
     <body onload="onloads()">
-        <div style="width: 1000px;margin-top: 50px;margin-left: 200px;">
+        <div style="width: 1400px;margin-top: 50px;margin-left: 100px;">
             <div id="d1">
                 <div style="padding: 15px;margin-left: 50px">
                     <form action="" method="post">
@@ -98,7 +102,7 @@
             <div id="d2">
                 <table class="tab">
                     <tr>
-                        <td id="kf" onmouseover="change(this)" onmouseout="out(this)"><a href="#" style="text-decoration:none;">开发部</a></td>
+                        <td id="kf" onmouseover="change(this)" onmouseout="out(this)" href="#signup" rel="leanModal"><a href="#example" rel="leanModal" style="text-decoration:none;">开发部</a></td>
                     </tr>
                     <tr>
                         <td id="cs" onmouseover="change(this)" onmouseout="out(this)"><a href="#" style="text-decoration:none;">测试部</a></td>
@@ -140,6 +144,20 @@
                         <td>3200003</td>
                     </tr>
                 </table>
+            </div>
+        </div>
+        <div id="example">
+            <div id="title"></div>
+            <a class="modal_close" href="#"></a>
+            <div id="name" class="mainbody">
+            </div>
+            <div id="password" class="mainbody">
+            </div>
+            <div id="depart" class="mainbody">
+            </div>
+            <div id="operate">
+                <button class="modal_submit btn">提交</button>
+                <button class="btn modal_close close_modal">关闭</button>
             </div>
         </div>
     </body>
