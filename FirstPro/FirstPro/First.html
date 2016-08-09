@@ -92,11 +92,9 @@
         <div style="width: 1400px;margin-top: 50px;margin-left: 100px;">
             <div id="d1">
                 <div style="padding: 15px;margin-left: 50px">
-                    <form action="" method="post">
                         账号/姓名:<input name="userid" type="text" id="search">
-                        <input type="submit" value="查询">
+                        <input type="submit" value="查询" id="searchs">
                         <input type="button" value="新增" onclick="window.location.replace('Second.html')">
-                    </form>
                 </div>
             </div>
             <div id="d2">
@@ -171,6 +169,21 @@
             </div>
         </div>
     <script type="text/javascript">
+
+        $('#searchs').click(function(){
+            var tval = $('#search').val().trim();
+            alert(tval);
+            var tab = document.getElementById("tab22");
+            var row = tab.getElementsByTagName("tr");
+            if(tval!="")
+                for(var i=1;i<tab.rows.length;i++){
+                    if(row[i].cells[5].innerHTML.trim()==tval|row[i].cells[4].innerHTML.trim()==tval){
+                        row[i].style.display = "";
+                    }else{
+                        row[i].style.display = "none";
+                    }
+                }
+        });
         $('.deliver').click(function () {
             var row = $(this).parent().parent();
             var selects = $("#userdepart");
