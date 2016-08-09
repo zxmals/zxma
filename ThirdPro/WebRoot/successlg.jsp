@@ -160,6 +160,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
     </body>
     <script type="text/javascript">
+    	/*    查询     */
     	$('#searchs').click(function(){
     		var tval = $('#search').val().trim();
     		alert(tval);
@@ -167,8 +168,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		var row = tab.getElementsByTagName("tr");
     		if(tval!="")
 	    		for(var i=1;i<tab.rows.length;i++){
-	    			if(row[i].cells[3].innerHTML==tval||row[i].cells[4].innerHTML==tval){
-	    				row[i].style.display = "block";
+	    			if(row[i].cells[3].innerHTML.trim()==tval||row[i].cells[4].innerHTML.trim()==tval){
+	    				row[i].style.display = "";
 	    			}else{
 	    				row[i].style.display = "none";
 	    			}
