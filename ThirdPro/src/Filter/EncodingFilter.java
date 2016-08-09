@@ -1,20 +1,17 @@
 package Filter;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.lang.reflect.Array;
-import java.net.HttpRetryException;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
+
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
-import javax.servlet.ServletRequestWrapper;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
@@ -66,7 +63,7 @@ public class EncodingFilter implements Filter {
 							return (String)param.get(name);
 					}
 				}
-				//制定 新写的request的子类（实际上只为了制定getParameter()）
+				//指定  新写的request的子类（实际上只为了指定getParameter()）
 				chain.doFilter(new AnoRequest(req), response);
 			}
 			else{

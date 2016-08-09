@@ -55,5 +55,32 @@
 		<servlet-name>logout</servlet-name>
 		<url-pattern>/logout</url-pattern>
 	</servlet-mapping>
+	<!-- update user-info -without password -->
+  <servlet>
+    <servlet-name>UpdateUserInf</servlet-name>
+    <servlet-class>Servlet.UpdateUserInf</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateUserInf</servlet-name>
+    <url-pattern>/updateuser</url-pattern>
+  </servlet-mapping>
+  <!-- delete a-user  -->
+  <servlet>
+    <servlet-name>DeleteUser</servlet-name>
+    <servlet-class>Servlet.DeleteUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteUser</servlet-name>
+    <url-pattern>/DeleteUser</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  <!--   add - user    -->
+    <servlet-name>AddUser</servlet-name>
+    <servlet-class>Servlet.AddUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddUser</servlet-name>
+    <url-pattern>/AddUser</url-pattern>
+  </servlet-mapping>
 
 </web-app>

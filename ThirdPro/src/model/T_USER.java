@@ -1,6 +1,13 @@
 package model;
 
-public class T_USER{
+import java.io.Serializable;
+
+public class T_USER implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1353070513141309366L;
 
 	private String YHDM;
 	private String DWDM;
@@ -10,14 +17,13 @@ public class T_USER{
 	private String YHXB;
 	private String YHBM;
 	private String CSRQ;
-	private String PXH;
+	private int PXH;
 	private String SFJY;
 	private String BMMC;
 
 	public T_USER(String yHDM, String dWDM, String yHID, String yHXM,
-			String yHKL, String yHXB, String yHBM, String cSRQ, String pXH,
+			String yHKL, String yHXB, String yHBM, String cSRQ, int pXH,
 			String sFJY) {
-		super();
 		YHDM = yHDM;
 		DWDM = dWDM;
 		YHID = yHID;
@@ -38,18 +44,16 @@ public class T_USER{
 		BMMC = bMMC;
 	}
 
-	
-	
-	public T_USER(String yHXM, String yHKL, String yHBM, String bMMC,String more) {
-		super();
+	public T_USER(String yHXM, String yHID, String yHKL, String yHBM,
+			String bMMC) {
 		YHXM = yHXM;
 		YHKL = yHKL;
+		YHID = yHID;
 		YHBM = yHBM;
 		BMMC = bMMC;
 	}
 
 	public T_USER() {
-		super();
 		// TODO Auto-generated constructor stub
 	}
 
@@ -125,11 +129,11 @@ public class T_USER{
 		CSRQ = cSRQ;
 	}
 
-	public String getPXH() {
+	public int getPXH() {
 		return PXH;
 	}
 
-	public void setPXH(String pXH) {
+	public void setPXH(int pXH) {
 		PXH = pXH;
 	}
 

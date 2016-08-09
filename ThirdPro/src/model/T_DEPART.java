@@ -1,7 +1,13 @@
 package model;
 
-public class T_DEPART {
+import java.io.Serializable;
 
+public class T_DEPART implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8505944896399277341L;
 	private String BMDM;
 	private String DWDM;
 	private String BMID;
@@ -10,13 +16,11 @@ public class T_DEPART {
 	private String PXH;
 	
 	public T_DEPART() {
-		super();
 		// TODO Auto-generated constructor stub
 	}
 	
 	public T_DEPART(String bMDM, String dWDM, String bMID, String bMMC,
 			String sFJY, String pXH) {
-		super();
 		BMDM = bMDM;
 		DWDM = dWDM;
 		BMID = bMID;
@@ -26,7 +30,6 @@ public class T_DEPART {
 	}
 	
 	public T_DEPART(String bMDM, String bMMC) {
-		super();
 		BMDM = bMDM;
 		BMMC = bMMC;
 	}

@@ -7,11 +7,13 @@ import java.sql.ResultSet;
 
 public class BaseDao {
 	
-	private final	String driver = "com.sybase.jdbc3.jdbc.SybDriver";
+	private final	String driver = "com.sybase.jdbc3.jdbc.SybDriver"; //driver class location
 	private final String url = "jdbc:sybase:Tds:zxmal:5000/testdb?charset=cp936";
 	private final String username = "sa";
 	private final String password = "";
-	
+	/*
+	 * getConnection
+	 */
 	public Connection getConn(){
 		Connection conn = null;
 		try{
@@ -22,7 +24,9 @@ public class BaseDao {
 		}
 		return conn;
 	}
-
+/*
+ * close connection||statement||result-set
+ */
 public static void close(PreparedStatement ps,ResultSet rs,Connection con){
 		
 		if(ps!=null)

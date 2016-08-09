@@ -14,6 +14,10 @@ import dao.T_DEPARTDAO;
 import dao.T_USERDao;
 
 public class Login extends HttpServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5745641035055363617L;
 	private T_USERDao userdao = new T_USERDao();
 	private T_DEPARTDAO departdao = new T_DEPARTDAO();
 	/**

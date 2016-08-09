@@ -50,9 +50,9 @@
                 }
 //                alert("id:"+userid+" name:"+username+" num:"+num);
             }
-            function dosth() {
-                alert(" . . . . . . ");
-            }
+//            function dosth() {
+//                alert(" . . . . . . ");
+//            }
             $(document).ready(function(){
                 var str = "<tr><td>"+num+"</td><td><a href='#' onclick='dosth()' style='text-decoration:none;'>【查看】</a></td>" +
                         "<td><a href='#' onclick='dosth()' style='text-decoration:none;'>【修改】</a></td>" +
@@ -102,7 +102,7 @@
             <div id="d2">
                 <table class="tab">
                     <tr>
-                        <td id="kf" onmouseover="change(this)" onmouseout="out(this)" href="#signup" rel="leanModal"><a href="#example" rel="leanModal" style="text-decoration:none;">开发部</a></td>
+                        <td id="kf" onmouseover="change(this)" onmouseout="out(this)" href="#signup" rel="leanModal"><a href="#" style="text-decoration:none;">开发部</a></td>
                     </tr>
                     <tr>
                         <td id="cs" onmouseover="change(this)" onmouseout="out(this)"><a href="#" style="text-decoration:none;">测试部</a></td>
@@ -135,12 +135,13 @@
                         <td>bbb</td>
                         <td>3200002</td>
                     </tr>
-                    <tr>
+                    <tr id="asdasdasd">
                         <td>3</td>
                         <td><a href="#" onclick="dosth()" style="text-decoration:none;">【查看】</a></td>
-                        <td><a href="#" onclick="dosth()" style="text-decoration:none;">【修改】</a></td>
+                        <td><a href="#example" rel="leanModal" class="deliver" style="text-decoration:none;">【修改】</a></td>
                         <td><a href="#" style="text-decoration:none;" onclick="deleterow('3')">【删除】</a></td>
                         <td>ccc</td>
+                        <td style="display: none">123123132</td>
                         <td>3200003</td>
                     </tr>
                 </table>
@@ -148,22 +149,34 @@
         </div>
         <div id="example">
             <div id="title">
-                <label>title</label>
+                <label>修改用户信息</label>
             </div>
             <a class="modal_close" href="#"></a>
-            <div id="name" class="mainbody">
-                div1
+            <div class="mainbody">
+                <span>用户ID:&nbsp;</span><input type="text" name="userid" id="userid" readonly>
             </div>
-            <div id="password" class="mainbody">
-                div2
+            <div class="mainbody">
+                <span>用户姓名:</span><input type="text" name="username" id="username">
             </div>
-            <div id="depart" class="mainbody">
-                div3
+            <div  class="mainbody">
+                <span>用户部门:</span><select name="userdepart" id="userdepart">
+                    <option selected></option>
+                    <option>开发</option>
+                    <option>测试</option>
+                </select>
             </div>
             <div id="operate">
                 <button class="modal_submit btn">提交</button>
                 <button class="btn modal_close close_modal">关闭</button>
             </div>
         </div>
+    <script type="text/javascript">
+        $('.deliver').click(function () {
+            var row = $(this).parent().parent();
+            var selects = $("#userdepart");
+            $('#userid').attr("value",row[0].cells[4].innerHTML);
+            $('#username').attr("value",row[0].cells[3].innerHTML);
+        });
+    </script>
     </body>
 </html>

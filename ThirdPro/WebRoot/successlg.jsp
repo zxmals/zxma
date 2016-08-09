@@ -10,8 +10,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <head>
         <title>Zxmals's Test</title>
         <meta http-equiv="content-type" content="text/html;charset=utf-8">
+		<link rel="stylesheet"  type="text/css" href="CSS/leanModalCss.css">
+		<link rel="stylesheet" type="text/css"  href="CSS/modaldialog.css">
         <link rel="stylesheet" type="text/css" href="CSS/div.css">
         <script type="text/javascript" src="js/jquery.js" ></script>
+        <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
         <script type="text/javascript">
             function change(obj) {
                 obj.style.background = '#b7e0f2';
@@ -21,17 +24,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             }
             function onloads() {
 //                alert("in");
-                var tab = document.getElementById("tab22");
+				layouttable();
+             	var updatestatus = "${udstatus }";
+             	var deletestatus = "${delstatus }";
+            	if(updatestatus!="")
+            		alert(updatestatus);
+            	if(deletestatus!="")
+            		alert(deletestatus);
+            }
+            function layouttable() {
+				 var tab = document.getElementById("tab22");
                 var row = tab.getElementsByTagName("tr");
                 for(var i=0;i<row.length;i++){
                     if((i+1)%2==0){
                         row[i].className = "trblack";
                     }
                 }
-            }            
-            $(document).ready(function(){    	              
+			}            
+            $(document).ready(function(){
+            	$('a[rel*=leanModal]').leanModal({ top: 200, closeButton: ".close_modal" });            	
             });
-            
             function clickchange(id) {
 				var tab = document.getElementById("tab22");
                 var row = tab.getElementsByTagName("tr");
@@ -41,7 +53,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                  		else
                  			row[i].style.display = "none";
                  }
-                 onloads();
+                 layouttable();
 			}
 			
             function deleterow(numid) {
@@ -58,12 +70,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div style="width: 1400px;margin-top: 50px;margin-left: 100px;">
             <div id="d1">
                 <div style="padding: 15px;margin-left: 50px">
-                    <form action=""  method="post">
+                  
                         账号/姓名:<input name="userid" type="text"   id="search">
-                        <input type="submit" value="查询" >
-                        <input type="button" value="新增" onclick="window.location.replace('Second.html')">
+                        <input type="submit" value="查询"  id="searchs">
+                        <input type="button" value="新增" onclick="window.open('<%=basePath %>AddUser.jsp')">
                         <span style="margin-left: 300px;margin-bottom: 20px">欢迎${login_inf.YHXM }登录 : 测试  <a href="logout"  style="color: green;text-decoration: none">注销</a></span>
-                    </form>                    
+                                       
                 </div>
             </div>
             <div id="d2">
@@ -86,15 +98,113 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </tr>
                     <c:forEach  var="sing"  items="${user }">
                     	<tr id="${sing.YHBM }"  style="display: none">
-                    		<td><a href="#" onclick="dosth()" style="text-decoration:none;">【查看】</a></td>
-	                        <td><a href="#" onclick="dosth()" style="text-decoration:none;">【修改】</a></td>
-	                        <td><a href="#" style="text-decoration:none;" onclick="deleterow('1')">【删除】</a></td>
+                    		<td><a href="#lookin" rel="leanModal"  style="text-decoration:none;" class="deliverlk" >【查看】</a></td>
+	                        <td><a href="#example" rel="leanModal"  style="text-decoration:none;" class="deliver"  >【修改】</a></td>
+	                        <c:if test="${login_inf.YHXM==sing.YHXM }"><td><a href="#" style="text-decoration:none;"  class="" >【删除】</a></td></c:if>
+	                        <c:if test="${login_inf.YHXM!=sing.YHXM }"><td><a href="javascript:void(0)" style="text-decoration:none;"  class="delete" >【删除】</a></td></c:if>
 	                        <td>${sing.YHXM }</td>
+	                        <td style="display: none">${sing.YHID }</td>
 	                        <td>${sing.BMMC }</td>
                     	</tr>
                     </c:forEach>                    
                 </table>
             </div>
         </div>
+        <!-- leanModal-dialog -->
+         <div id="example"  class = "modal_out_look">
+            <div id="title">
+                <label>修改用户信息</label>
+            </div>
+            <a class="modal_close" href="#"></a>
+            <form  action="updateuser"   method="post" name="uduser">
+            	<div class="mainbody">
+                	<span>用户ID:&nbsp;</span><input type="text" name="userid" id="userid"  readonly="readonly">
+           		 </div>
+	            <div class="mainbody">
+	                <span>用户姓名:</span><input type="text" name="username" id="username">
+	            </div>
+	            <div  class="mainbody">
+	                <span>用户部门:</span><select name="userdepart"  id="userdepart">	                    
+	                    <c:forEach  var="dep"  items="${depart }">	                    
+	                    	<option value="${dep.BMDM }">${dep.BMMC }</option>
+	                    </c:forEach>
+	                </select>
+	            </div>
+	          </form>
+	            <div id="operate">
+	                <button class="modal_submit btn"  id="subchange">提交</button>
+	                <button class="btn modal_close close_modal">关闭</button>
+	            </div>            
+        </div>
+        <div id="lookin"  class = "modal_out_look">
+            <div id="title">
+                <label>查看用户信息</label>
+            </div>
+            <a class="modal_close" href="#"></a>
+            	<div class="mainbody">
+                	<span>用户ID:&nbsp;</span><input type="text" name="useridlk" id="useridlk"  readonly="readonly">
+           		 </div>
+	            <div class="mainbody">
+	                <span>用户姓名:</span><input type="text" name="usernamelk" id="usernamelk"  readonly="readonly">
+	            </div>
+	            <div  class="mainbody">
+	                <span>用户部门:</span><select name="userdepartlk"  id="userdepartlk"  disabled="disabled">
+	                    <c:forEach  var="dep"  items="${depart }">
+	                    	<option value="${dep.BMDM }">${dep.BMMC }</option>
+	                    </c:forEach>
+	                </select>
+	            </div>
+	            <div id="operate">
+	                <button class="btn modal_close close_modal">关闭</button>
+	            </div>            
+        </div>
     </body>
+    <script type="text/javascript">
+    	$('#searchs').click(function(){
+    		var tval = $('#search').val().trim();
+    		alert(tval);
+    		var tab = document.getElementById("tab22");
+    		var row = tab.getElementsByTagName("tr");
+    		if(tval!="")
+	    		for(var i=1;i<tab.rows.length;i++){
+	    			if(row[i].cells[3].innerHTML==tval||row[i].cells[4].innerHTML==tval){
+	    				row[i].style.display = "block";
+	    			}else{
+	    				row[i].style.display = "none";
+	    			}
+	    		}
+    	});
+    	/*     删除一个用户     */
+		$('.delete').click(function(){
+			var x = confirm("确定删除？！");
+			var userids = $(this).parent().parent()[0].cells[4].innerHTML;
+			if(x){
+				$.post("<%=basePath %>DeleteUser",{userid:userids});
+				window.location.reload();
+			}
+		});
+    	/*    修改用户信息传值    */
+        $('.deliver').click(function () {
+            var row = $(this).parent().parent();
+            $('#userid').attr("value",row[0].cells[4].innerHTML);
+            $('#username').attr("value",row[0].cells[3].innerHTML);
+            $('#userdepart').find("option[value='"+row[0].id+"']").attr("selected",true);
+        });
+        /*    查看用户信息传值    */
+         $('.deliverlk').click(function () {
+            var row = $(this).parent().parent();
+            $('#useridlk').attr("value",row[0].cells[4].innerHTML);
+            $('#usernamelk').attr("value",row[0].cells[3].innerHTML);
+            $('#userdepartlk').find("option[value='"+row[0].id+"']").attr("selected",true);
+        });
+        /*    提交检查    */
+        $('#subchange').click(function(){
+        	if($('#username').val().trim()==""){
+        		alert("用户名不能为空");
+        		$('#username').attr("value","");
+        		return;
+        	}
+        	document.uduser.submit();
+        });
+    </script>
 </html>
