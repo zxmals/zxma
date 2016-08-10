@@ -1,5 +1,9 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core"   prefix="c" %>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
     <head>
@@ -91,7 +95,7 @@
                     </table>
                 </form>
             <input style="margin-left: 350px" type="submit" value="保存" onclick="checknull()">
-            <input type="button" value="返回" onclick="window.location.replace('First.html')">
+            <input type="button" value="返回" onclick="window.location.replace('<%=basePath %>successlg.jsp')">
         </div>
     </body>
 </html>

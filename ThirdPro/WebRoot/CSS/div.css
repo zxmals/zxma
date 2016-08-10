@@ -60,6 +60,17 @@
     background-color: #BFBFBF;
     text-align: center;
 }
+.trwhite {
+
+}
+.trwhite td {
+    border-left: 1px solid #b1f5f8;
+    border-right: 1px solid #b1f5f8;
+    color: black;
+    height: 31px;
+    background-color: #FFFFFF;
+    text-align: center;
+}
 .trblack {
 
 }
@@ -68,6 +79,16 @@
     border-right: 1px solid #b1f5f8;
     color: black;
     background-color: #BFBFBF;
+    text-align: center;
+}
+.trsearchresult {
+
+}
+.trsearchresult td {
+     border-left: 1px solid #b1f5f8;
+    border-right: 1px solid #b1f5f8;
+    color: black;
+    background-color: #8df1e4;
     text-align: center;
 }
 .stab {
