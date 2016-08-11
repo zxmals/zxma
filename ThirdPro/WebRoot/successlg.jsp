@@ -157,22 +157,89 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	            </div>
 	            <div id="operate">
 	                <button class="btn modal_close close_modal">关闭</button>
-	            </div>            
+	            </div>    
         </div>
     </body>
     <script type="text/javascript">
     	/*    查询     */
-    	$('#search').keypress(
-	    		function(e){
-		    		var key = e.which;
-		    		if(key==13){
-		    		var tval = $('#search').val().trim();
+//     	$('#search').bind({
+//     		keypress:function(e){
+//     			var key = e.which;
+//     			if(key==13){
+//     				var tval = $('#search').val().trim();
+// 		    		var tab = document.getElementById("tab22");
+// 		    		var row = tab.getElementsByTagName("tr");
+// 		    		var calnum = 0;
+// 		    		if(tval!=""){
+// 		    			for(var i=1;i<tab.rows.length;i++){
+// 		    			//str1.indexOf(str2)>=0  :str1 C str2
+// 			    			if(row[i].cells[3].innerHTML.trim().indexOf(tval)>=0||row[i].cells[4].innerHTML.trim().indexOf(tval)>=0||row[i].cells[5].innerHTML.trim().indexOf(tval)>=0){
+// 			    				row[i].style.display = "";
+// 			    				row[i].className="trsearchresult";
+// 			    			}else{
+// 			    				row[i].style.display = "none";
+// 			    				calnum++;
+// 			    			}
+// 			    		}
+// 		    		}else{
+// 		    			alert("查询值为空！");
+// 		    			$('#search').attr("value","");
+// 		    			return;
+//     				}
+// 		    		if(calnum==tab.rows.length-1)
+// 		    			alert("查无此人!");	
+// 	    		}
+//     		},
+//     		keyup:function(){
+//     				var tval = $('#search').val().trim();
+// 		    		var tab = document.getElementById("tab22");
+// 		    		var row = tab.getElementsByTagName("tr");
+// 		    		var calnum = 0;
+// 		    		if(tval!=""){
+// 		    			for(var i=1;i<tab.rows.length;i++){
+// 		    			//str1.indexOf(str2)>=0  :str1 C str2
+// 			    			if(row[i].cells[3].innerHTML.trim().indexOf(tval)>=0||row[i].cells[4].innerHTML.trim().indexOf(tval)>=0||row[i].cells[5].innerHTML.trim().indexOf(tval)>=0){
+// 			    				row[i].style.display = "";
+// 			    				row[i].className="trsearchresult";
+// 			    			}else{
+// 			    				row[i].style.display = "none";
+// 			    				calnum++;
+// 			    			}
+// 			    		}
+// 		    		}
+//     		}
+//     	});
+    	$('#search').bind(
+    		"keyup",function(){
+    			 	var tval = $('#search').val().trim();
 		    		var tab = document.getElementById("tab22");
 		    		var row = tab.getElementsByTagName("tr");
 		    		var calnum = 0;
 		    		if(tval!=""){
 		    			for(var i=1;i<tab.rows.length;i++){
-			    			if(row[i].cells[3].innerHTML.trim()==tval||row[i].cells[4].innerHTML.trim()==tval){
+		    			//str1.indexOf(str2)>=0  :str1 C str2
+			    			if(row[i].cells[3].innerHTML.trim().indexOf(tval)>=0||row[i].cells[4].innerHTML.trim().indexOf(tval)>=0||row[i].cells[5].innerHTML.trim().indexOf(tval)>=0){
+			    				row[i].style.display = "";
+			    				row[i].className="trsearchresult";
+			    			}else{
+			    				row[i].style.display = "none";
+			    				calnum++;
+			    			}
+			    		}
+		    		}
+    		}
+    	);
+    	$('#search').bind("keypress",function(e){
+    			var key = e.which;
+    			if(key==13){
+    				var tval = $('#search').val().trim();
+		    		var tab = document.getElementById("tab22");
+		    		var row = tab.getElementsByTagName("tr");
+		    		var calnum = 0;
+		    		if(tval!=""){
+		    			for(var i=1;i<tab.rows.length;i++){
+		    			//str1.indexOf(str2)>=0  :str1 C str2
+			    			if(row[i].cells[3].innerHTML.trim().indexOf(tval)>=0||row[i].cells[4].innerHTML.trim().indexOf(tval)>=0||row[i].cells[5].innerHTML.trim().indexOf(tval)>=0){
 			    				row[i].style.display = "";
 			    				row[i].className="trsearchresult";
 			    			}else{
@@ -184,11 +251,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    			alert("查询值为空！");
 		    			$('#search').attr("value","");
 		    			return;
-		    		}
+    				}
 		    		if(calnum==tab.rows.length-1)
 		    			alert("查无此人!");	
-		    	}
-	    	});
+	    		}
+    		});
     	$('#searchs').click(function(){
     		var tval = $('#search').val().trim();
     		var tab = document.getElementById("tab22");
