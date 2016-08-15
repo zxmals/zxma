@@ -263,7 +263,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		var calnum = 0;
     		if(tval!=""){
     			for(var i=1;i<tab.rows.length;i++){
-	    			if(row[i].cells[3].innerHTML.trim()==tval||row[i].cells[4].innerHTML.trim()==tval){
+	    			if(row[i].cells[3].innerHTML.trim().indexOf(tval)>=0||row[i].cells[4].innerHTML.trim().indexOf(tval)>=0){
 	    				row[i].style.display = "";
 	    				row[i].className="trsearchresult";
 	    			}else{
