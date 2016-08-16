@@ -50,11 +50,9 @@ public class DeleteUser extends HttpServlet {
 			if(userid!=null)
 				if(userdao.deleteUser(userid)){
 					session.setAttribute("user", userdao.getUser());
-					resp.getWriter().write("succ");
 				}
 				else{
 					System.out.println("删除失败");
-					resp.getWriter().write("fail");
 				}			
 	}
 

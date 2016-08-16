@@ -286,13 +286,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			var userids = $(this).parent().parent()[0].cells[4].innerHTML;
 			if(x){
 				$.post("<%=basePath %>DeleteUser",{userid:userids},
-					function(data){
-						if(data=="succ"){
+					function(data,status){
+						if(status=="success"){
 							intd.parent().parent().remove();
 							alert("删除成功!");	
 							//window.location.reload();
 						}
-						if(data=="fail")
+						if(status=="error")
 							alert("删除失败");
 					}
 				);

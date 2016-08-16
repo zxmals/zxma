@@ -44,6 +44,15 @@ public class T_USER implements Serializable {
 		BMMC = bMMC;
 	}
 
+	
+	
+	public T_USER(String yHXM,String yHID,  String yHKL, String yHBM,String NULL,String NULLS) {
+		YHID = yHID;
+		YHXM = yHXM;
+		YHKL = yHKL;
+		YHBM = yHBM;
+	}
+
 	public T_USER(String yHXM, String yHID, String yHKL, String yHBM,
 			String bMMC) {
 		YHXM = yHXM;
