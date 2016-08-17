@@ -11,39 +11,23 @@
         <div class="location">
             <div class="guide">
                 <div class="focus" id="changeguide">
-                    <a href="#">图书借阅管理</a>
+                    <a href="#">图书借阅管理</a><br><br><hr>
                 </div>
                 <div class="hideli">
                     <ul>
-                        <li class="focus"><a href="#" target="showtimes" >类型设置</a></li>
-                        <li class="focus"><a href="#" target="showtimes" >图书档案</a></li>
+                        <li class="focus"><a href="book_type.html" target="showtimes" >类型设置</a></li>
+                        <li class="focus"><a href="book_manage.html" target="showtimes" >图书档案</a></li>
                         <li class="focus"><a href="#" target="showtimes" >图书查询</a></li>
                         <li class="focus"><a href="#" target="showtimes" >图书统计</a></li>
                     </ul>
                 </div>
             </div>
             <div class="showview">
-                <iframe class="iframes"  name="showtimes"  src="http://www.baidu.com">
+                <iframe class="iframes"  name="showtimes"  src="">
 
                 </iframe>
             </div>
         </div>
     </body>
-<script>
-    $('#changeguide').click(function () {
-        if($('.hideli').css("display")=="none"){
-            $('.hideli').slideDown();
-        }else{
-            $('.hideli').slideUp();
-        }
-    });
-    $('.focus').mouseover(function () {
-        $(this).css('background-color','#33A6D1');
-        $(this).find("a").css('color','#FAE22E');
-    });
-    $('.focus').mouseout(function () {
-        $(this).css('background-color','#36beec');
-        $(this).find("a").css('color','#efec73');
-    });
-</script>
+    <script type="text/javascript" src="../js/homepage.js"></script>
 </html>

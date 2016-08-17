@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>bookma-bookManage</title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <link rel="stylesheet" href="../css/book_manage.css" />
+        <script type="text/javascript" src="../js/jquery.js" ></script>
+    </head>
+    <body>
+        <div class="mainloaction">
+            <div class="search">
+                <div class="decoration">
+                    <table>
+                        <tr>
+                            <td>类型:</td>
+                            <td><input type="text"></td>
+                            <td>书名:</td>
+                            <td><input type="text"></td>
+                            <td>图书编码:</td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>期刊号:</td>
+                            <td><input type="text"></td>
+                            <td>出版社:</td>
+                            <td><input type="text"></td>
+                            <td>作者:</td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>出版起止时间:</td>
+                            <td colspan="3"><input type="text">  -至- &nbsp;<input type="text"></td>
+                            <td>架号:</td>
+                            <td><input type="text"></td>
+                        </tr>
+                    </table>
+                </div>
+                <hr >
+                <div class="outoperate">
+                    <a href="#">查询</a>&nbsp;
+                    <a href="#">新增</a>
+                </div>
+                <hr >
+            </div>
+            <div class="result">
+                <div>
+                    <table>
+                        <tr>
+                            <th>类型</th>
+                            <th>图书编码</th>
+                            <th>书名</th>
+                            <th>作者</th>
+                            <th>期刊号</th>
+                            <th>出版社</th>
+                            <th>出版时间</th>
+                            <th>架号</th>
+                            <th>状态</th>
+                            <th><a href="#">浏览</a>   <a href="#">编辑</a>   <a href="#">删除</a></th>
+                        </tr>
+                        <tr class="rowsmove">
+                            <td>类型</td>
+                            <td>图书编码</td>
+                            <td>书名</td>
+                            <td>作者</td>
+                            <td>期刊号</td>
+                            <td>出版社</td>
+                            <td>出版时间</td>
+                            <td>架号</td>
+                            <td>状态</td>
+                            <td><a href="#">浏览</a>   <a href="#">编辑</a>   <a href="#">删除</a></td>
+                        </tr>
+                        <tr class="rowsmove">
+                            <td>类型</td>
+                            <td>图书编码</td>
+                            <td>书名</td>
+                            <td>作者</td>
+                            <td>期刊号</td>
+                            <td>出版社</td>
+                            <td>出版时间</td>
+                            <td>架号</td>
+                            <td>状态</td>
+                            <td><a href="#">浏览</a>   <a href="#">编辑</a>   <a href="#">删除</a></td>
+                        </tr>
+                        <tr class="rowsmove">
+                            <td>类型</td>
+                            <td>图书编码</td>
+                            <td>书名</td>
+                            <td>作者</td>
+                            <td>期刊号</td>
+                            <td>出版社</td>
+                            <td>出版时间</td>
+                            <td>架号</td>
+                            <td>状态</td>
+                            <td><a href="#">浏览</a>   <a href="#">编辑</a>   <a href="#">删除</a></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="numpage">
+                    共XX页&nbsp;第X/X页&nbsp;<a href="#">首页</a>&nbsp;<a href="#">上一页</a>&nbsp;<a href="#">下一页</a>&nbsp;<input type="text"><a href="#">跳转</a>
+                </div>
+            </div>
+        </div>
+    </body>
+<script>
+    $(document).ready(function () {
+        var tab = $('.result table');
+        var row = tab.find("tr");
+        for(var i=0;i<tab[0].rows.length;i++){
+            if ((i+1)%2==0){
+                row[i].style.backgroundColor = "#36BEEC";
+            }else{
+                row[i].style.backgroundColor = "#D1D5DF";
+            }
+        }
+    });
+    $('.rowsmove').mouseover(function () {
+        
+    });
+</script>
+</html>

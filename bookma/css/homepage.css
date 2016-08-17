@@ -1,6 +1,13 @@
 .location{
     margin-left: 10%;
 }
+#changeguide {
+    height: 49px;
+}
+#changeguide hr {
+    border: thin solid #33A6D1;
+    width: 80%;
+}
 .focus {
     text-align: center;
     height: 35px;
@@ -29,7 +36,6 @@
 .iframes{
     width: 100%;
     height:100%;
-    background-color: #bbf9bc;
     border: thin solid #36beec;
 }
 .hideli{

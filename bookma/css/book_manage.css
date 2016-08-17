@@ -1,0 +1,60 @@
+.search {
+    height: 200px;
+}
+.search hr {
+    border: thin solid #36beec;
+}
+.result {
+    height: 700px;
+}
+.decoration {
+    margin-top: 10px;
+}
+.decoration table {
+    height: 140px;
+}
+.decoration table input {
+    border: thin solid #36beec;
+    outline: medium;
+}
+.outoperate {
+    height: 24px;
+    background-color: #36beec;
+    text-align: center;
+    padding-top: 6px;
+}
+.outoperate a {
+    text-decoration: blink;
+    color: #b91720;
+    font-weight: bold;
+    font-size: large;
+}
+.result table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.result th {
+    border-right: thin solid #ecc787;
+    height: 30px;
+}
+.result th a{
+    text-decoration: blink;
+    color: #b91720;
+    font-weight: bold;
+    font-size: large;
+}
+.result table td {
+    height: 25px;
+    border-right: thin solid #d6ecc3;
+    text-align: center;
+}
+.numpage {
+    padding-top: 9px;
+    height: 27px;
+    text-align: center;
+    /*   可变调 change able  */
+    background-color: #36beec;
+    position: absolute;
+    width: 99%;
+    bottom: 0px;
+}
