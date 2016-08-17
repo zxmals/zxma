@@ -115,7 +115,18 @@
         }
     });
     $('.rowsmove').mouseover(function () {
-        
+        if(($(this)[0].rowIndex+1)%2==0){
+            $(this).css("background-color","#3CCAFF");
+        }else{
+            $(this).css("background-color","#FFFFFF");
+        }
+    });
+    $('.rowsmove').mouseout(function () {
+        if(($(this)[0].rowIndex+1)%2==0){
+            $(this).css("background-color","#36BEEC");
+        }else{
+            $(this).css("background-color","#D1D5DF");
+        }
     });
 </script>
 </html>
