@@ -1,0 +1,84 @@
+.guide {
+    height:900px;
+    width: 25%;
+    border-right: thin solid #36beec;
+    float: left;
+}
+.ghead {
+    margin-top: 15px;
+    font-size: larger;
+}
+.ghead a {
+    text-decoration: blink;
+    color: #ADAA57;
+    font-weight: 600;
+}
+.ghead image {
+    width: 14px;
+    height: 14px;
+}
+.adiv{
+    margin-top: 20px;
+    display: none;
+}
+.bdiv{
+    margin-top: 5px;
+    margin-left: 10px;
+    display: none;
+}
+.adiv ul li {
+    list-style-type: none;
+    height: 26px;
+}
+.adiv ul li a {
+    font-size: medium;
+    color: #959242;
+    text-decoration: none;
+}
+.typeset {
+    height:900px;
+    width: 74%;
+    float: left;
+}
+.tabhead {
+    font-size: larger;
+    font-weight: bold;
+    color: cadetblue;
+    position: absolute;
+    top: 8%;
+    left:57%;
+}
+.operate {
+    margin-top: 2%;
+    margin-left: 70%;
+}
+.operate a {
+    text-decoration: none;
+    color: #ec8370;
+    font-weight: 600;
+}
+.pretend_table {
+    margin-top: 8%;
+}
+.regular_tab {
+    height: 65px;
+}
+.regular_tab label {
+    margin-left: 14%;
+    color: #43709b;
+}
+.regular_tab input {
+    position: absolute;
+    left: 46%;
+    height: 22px;
+    width: 350px;
+    border:none;
+    outline: medium;
+    background-color: #DEF6FF;
+}
+#sfjy {
+    position: absolute;
+    left: 46%;
+    height: 15px;
+    width: 15px;
+}

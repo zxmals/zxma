@@ -3,20 +3,26 @@
  */
 /*  first div-slide control  */
 $('.ghead').click(function () {
-    if ($('.adiv').css("display")=="none"){
-        $('.adiv').slideDown();
-    }else{
-        $('.adiv').slideUp();
-    }
+    $('.adiv').slideToggle("slow");
+/*
+ if ($('.adiv').css("display")=="none"){
+ $('.adiv').slideDown();
+ }else{
+ $('.adiv').slideUp();
+ }
+ */
 });
 /*  second div-slide control  */
 $('.hthird').click(function () {
     var x = $(this).next();
-    if (x[0].style.display=="none"|x[0].style.display==""){
-        x.slideDown();
-    }else{
-        x.slideUp();
-    }
+    x.slideToggle();
+/*
+if (x[0].style.display=="none"|x[0].style.display==""){
+ x.slideDown();
+ }else{
+ x.slideUp();
+ }
+ */
 });
 /*  change image-arrow  */
 $('.expand').click(function () {
@@ -26,8 +32,8 @@ $('.expand').click(function () {
         $(this).find("img").attr("src","../img/larrow.png");
 });
 $(".bdiv li").click(function () {
-    $(".bdiv li").find("hr").remove();
-    $(this).append("<hr style='border: thin solid #b7c4d0;width: 45%;margin-right: 66%'>");
+    $(".bdiv li").find(".rimg").remove();
+    $(this).append(" <img  class='rimg' src='../img/rarrow.png' alt=''>");
 });
 /*  check -null  */
 $("#save").click(function () {
