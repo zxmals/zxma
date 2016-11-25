@@ -70,6 +70,32 @@ public class T_USERDao extends BaseDao{
 			return null;
 	}
 	
+	public  List<T_USER> getUsers(){
+		List<T_USER> userli = new ArrayList<T_USER>();
+		T_USER user = null;
+		String sql = "select YHXM,YHID,YHKL,YHBM from T_USER";
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try{
+			conn = getConn();
+			ps = conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while(rs.next()){
+				user = new T_USER(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),"","");
+				userli.add(user);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			close(ps, rs, conn);
+		}
+		if(userli.size()!=0)
+			return userli;
+		else
+			return null;
+	}
+	
 	public boolean updateUserinf(T_USER user){
 		boolean flag = true;
 		String sql = "update T_USER set  YHXM = ? ,YHBM = ? WHERE YHID = ? ";

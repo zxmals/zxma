@@ -54,7 +54,7 @@ public class AddUser extends HttpServlet {
 				req.getParameter("CSRQ"), pxh, req.getParameter("SFJY"));
 		HttpSession session = req.getSession();
 		if(userdao.addUser(user)){
-			session.setAttribute("login_inf", userdao.getUser());
+			session.setAttribute("user", userdao.getUser());
 			req.setAttribute("addstatus", "添加成功");
 		}
 		else

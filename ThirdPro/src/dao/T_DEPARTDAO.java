@@ -5,7 +5,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import model.T_DEPART;
 
@@ -35,5 +37,33 @@ public class T_DEPARTDAO extends BaseDao {
 			return departli;
 		else
 			return null;
+	}
+	
+	public Map<String, Object> getdepart(){
+		Map<String, Object>  depmap = new HashMap<String, Object>();
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			conn = getConn();
+			ps = conn.prepareStatement("SELECT BMDM,BMMC  FROM T_DEPART");
+			rs = ps.executeQuery();
+			while(rs.next()){
+				depmap.put(rs.getString(1), rs.getObject(2));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally{
+			close(ps, rs, conn);
+		}
+		return depmap;
+	}
+	
+	public static void main(String[] args){
+		Map<String, Object> map = new T_DEPARTDAO().getdepart();
+		for(Map.Entry<String, Object> e:map.entrySet()){
+			System.out.println(e.getKey()+"                    "+e.getValue());
+		}
 	}
 }

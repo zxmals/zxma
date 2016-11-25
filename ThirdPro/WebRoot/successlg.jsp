@@ -26,11 +26,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 //                alert("in");
 				layouttable();
              	var updatestatus = "${udstatus }";
-             	var deletestatus = "${delstatus }";
-            	if(updatestatus!="")
-            		alert(updatestatus);
-            	if(deletestatus!="")
-            		alert(deletestatus);
+            	if(updatestatus!=""){
+            		alert(updatestatus);          
+            	}
             }
             function layouttable() {
 				 var tab = document.getElementById("tab22");
@@ -38,9 +36,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 for(var i=0;i<row.length;i++){
                     if((i+1)%2==0){
                         row[i].className = "trblack";
+                    }else{
+                    	row[i].className = "trwhite";
                     }
                 }
-			}            
+			}
+			/*       引入摸态框       */
             $(document).ready(function(){
             	$('a[rel*=leanModal]').leanModal({ top: 200, closeButton: ".close_modal" });            	
             });
@@ -71,9 +72,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div id="d1">
                 <div style="padding: 15px;margin-left: 50px">
                   
-                        账号/姓名:<input name="userid" type="text"   id="search">
+                        账号/姓名:<input name="userid" type="text"   id="search" >
                         <input type="submit" value="查询"  id="searchs">
-                        <input type="button" value="新增" onclick="window.open('<%=basePath %>AddUser.jsp')">
+                        <input type="button" value="新增" onclick="window.location.replace('<%=basePath %>AddUser.jsp')">
                         <span style="margin-left: 300px;margin-bottom: 20px">欢迎${login_inf.YHXM }登录 : 测试  <a href="logout"  style="color: green;text-decoration: none">注销</a></span>
                                        
                 </div>
@@ -156,32 +157,145 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	            </div>
 	            <div id="operate">
 	                <button class="btn modal_close close_modal">关闭</button>
-	            </div>            
+	            </div>    
         </div>
     </body>
     <script type="text/javascript">
     	/*    查询     */
+//     	$('#search').bind({
+//     		keypress:function(e){
+//     			var key = e.which;
+//     			if(key==13){
+//     				var tval = $('#search').val().trim();
+// 		    		var tab = document.getElementById("tab22");
+// 		    		var row = tab.getElementsByTagName("tr");
+// 		    		var calnum = 0;
+// 		    		if(tval!=""){
+// 		    			for(var i=1;i<tab.rows.length;i++){
+// 		    			//str1.indexOf(str2)>=0  :str1 C str2
+// 			    			if(row[i].cells[3].innerHTML.trim().indexOf(tval)>=0||row[i].cells[4].innerHTML.trim().indexOf(tval)>=0||row[i].cells[5].innerHTML.trim().indexOf(tval)>=0){
+// 			    				row[i].style.display = "";
+// 			    				row[i].className="trsearchresult";
+// 			    			}else{
+// 			    				row[i].style.display = "none";
+// 			    				calnum++;
+// 			    			}
+// 			    		}
+// 		    		}else{
+// 		    			alert("查询值为空！");
+// 		    			$('#search').attr("value","");
+// 		    			return;
+//     				}
+// 		    		if(calnum==tab.rows.length-1)
+// 		    			alert("查无此人!");	
+// 	    		}
+//     		},
+//     		keyup:function(){
+//     				var tval = $('#search').val().trim();
+// 		    		var tab = document.getElementById("tab22");
+// 		    		var row = tab.getElementsByTagName("tr");
+// 		    		var calnum = 0;
+// 		    		if(tval!=""){
+// 		    			for(var i=1;i<tab.rows.length;i++){
+// 		    			//str1.indexOf(str2)>=0  :str1 C str2
+// 			    			if(row[i].cells[3].innerHTML.trim().indexOf(tval)>=0||row[i].cells[4].innerHTML.trim().indexOf(tval)>=0||row[i].cells[5].innerHTML.trim().indexOf(tval)>=0){
+// 			    				row[i].style.display = "";
+// 			    				row[i].className="trsearchresult";
+// 			    			}else{
+// 			    				row[i].style.display = "none";
+// 			    				calnum++;
+// 			    			}
+// 			    		}
+// 		    		}
+//     		}
+//     	});
+    	$('#search').bind(
+    		"keyup",function(){
+    			 	var tval = $('#search').val().trim();
+		    		var tab = document.getElementById("tab22");
+		    		var row = tab.getElementsByTagName("tr");
+		    		var calnum = 0;
+		    		if(tval!=""){
+		    			for(var i=1;i<tab.rows.length;i++){
+		    			//str1.indexOf(str2)>=0  :str1 C str2
+			    			if(row[i].cells[3].innerHTML.trim().indexOf(tval)>=0||row[i].cells[4].innerHTML.trim().indexOf(tval)>=0||row[i].cells[5].innerHTML.trim().indexOf(tval)>=0){
+			    				row[i].style.display = "";
+			    				row[i].className="trsearchresult";
+			    			}else{
+			    				row[i].style.display = "none";
+			    				calnum++;
+			    			}
+			    		}
+		    		}
+    		}
+    	);
+    	$('#search').bind("keypress",function(e){
+    			var key = e.which;
+    			if(key==13){
+    				var tval = $('#search').val().trim();
+		    		var tab = document.getElementById("tab22");
+		    		var row = tab.getElementsByTagName("tr");
+		    		var calnum = 0;
+		    		if(tval!=""){
+		    			for(var i=1;i<tab.rows.length;i++){
+		    			//str1.indexOf(str2)>=0  :str1 C str2
+			    			if(row[i].cells[3].innerHTML.trim().indexOf(tval)>=0||row[i].cells[4].innerHTML.trim().indexOf(tval)>=0||row[i].cells[5].innerHTML.trim().indexOf(tval)>=0){
+			    				row[i].style.display = "";
+			    				row[i].className="trsearchresult";
+			    			}else{
+			    				row[i].style.display = "none";
+			    				calnum++;
+			    			}
+			    		}
+		    		}else{
+		    			alert("查询值为空！");
+		    			$('#search').attr("value","");
+		    			return;
+    				}
+		    		if(calnum==tab.rows.length-1)
+		    			alert("查无此人!");	
+	    		}
+    		});
     	$('#searchs').click(function(){
     		var tval = $('#search').val().trim();
-    		alert(tval);
     		var tab = document.getElementById("tab22");
     		var row = tab.getElementsByTagName("tr");
-    		if(tval!="")
-	    		for(var i=1;i<tab.rows.length;i++){
-	    			if(row[i].cells[3].innerHTML.trim()==tval||row[i].cells[4].innerHTML.trim()==tval){
+    		var calnum = 0;
+    		if(tval!=""){
+    			for(var i=1;i<tab.rows.length;i++){
+	    			if(row[i].cells[3].innerHTML.trim().indexOf(tval)>=0||row[i].cells[4].innerHTML.trim().indexOf(tval)>=0){
 	    				row[i].style.display = "";
+	    				row[i].className="trsearchresult";
 	    			}else{
 	    				row[i].style.display = "none";
+	    				calnum++;
 	    			}
 	    		}
+    		}else{
+    			alert("查询值为空！");
+    			$('#search').attr("value","");
+    			return;
+    		}
+    		if(calnum==tab.rows.length-1)
+    			alert("查无此人!");	
     	});
     	/*     删除一个用户     */
 		$('.delete').click(function(){
 			var x = confirm("确定删除？！");
+			var intd = $(this);
 			var userids = $(this).parent().parent()[0].cells[4].innerHTML;
 			if(x){
-				$.post("<%=basePath %>DeleteUser",{userid:userids});
-				window.location.reload();
+				$.post("<%=basePath %>DeleteUser",{userid:userids},
+					function(data,status){
+						if(status=="success"){
+							intd.parent().parent().remove();
+							alert("删除成功!");	
+							//window.location.reload();
+						}
+						if(status=="error")
+							alert("删除失败");
+					}
+				);
 			}
 		});
     	/*    修改用户信息传值    */

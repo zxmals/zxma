@@ -49,13 +49,11 @@ public class DeleteUser extends HttpServlet {
 			HttpSession session = req.getSession();
 			if(userid!=null)
 				if(userdao.deleteUser(userid)){
-					req.setAttribute("delstatus", "删除成功");
 					session.setAttribute("user", userdao.getUser());
 				}
 				else{
-					req.setAttribute("delstatus", "删除失败");
-				}
-			req.getRequestDispatcher("successlg.jsp").forward(req, resp);
+					System.out.println("删除失败");
+				}			
 	}
 
 }

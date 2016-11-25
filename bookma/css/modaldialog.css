@@ -1,0 +1,113 @@
+#browse {
+    width: 85%;
+    display: none;
+    background-color: #f0efec;
+    -moz-border-radius: 9px;
+    -webkit-border-radius: 9px;
+    border-radius: 9px;
+}
+.close_modal {
+    border: none;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 18px;
+    height: 18px;
+}
+.reptitle{
+    margin-top: 40px;
+    text-align: center;
+}
+#browse .reptitle h4 {
+    color: #556B2F;
+}
+#browse .bookinf table{
+    border-collapse: collapse;
+    margin-left: 1%;
+    width: 97%;
+    height:90%;
+}
+#browse .bookinf table td{
+    border-right: thin solid white;
+    border-bottom: thin solid white;
+    height: 26px;
+    text-align: right;
+}
+#browse .fillin{
+    width: 100%;
+    height: 100%;
+    background-color: #f0efec;
+    outline: medium;
+    border:thin solid #f0efec;
+}
+#browse .fillprice {
+    width: 90%;
+    height: 100%;
+    background-color: #f0efec;
+    outline: medium;
+    border:thin solid #f0efec;
+}
+#browse .brrowinf {
+    padding-bottom: 30px;
+    padding-top: 10px;
+}
+#browse .brrowinf table{
+    border-collapse: collapse;
+    margin-left: 1%;
+    width: 97%;
+}
+#browse .brrowinf table td,th{
+    border-left: thin solid white;
+    border-bottom: thin solid white;
+    height: 26px;
+}
+#browse .brrowinf table th{
+    font-size: medium;
+    font-weight: 500;
+}
+#browse .brrowinf table td{
+    text-align: left;
+    font-size: medium;
+    font-weight: 100;
+}
+
+/*         分界线         */
+#addORupdate .reptitle{
+    margin-top: 0px;
+    text-align: center;
+}
+#addORupdate{
+    width: 85%;
+    height: 360px;
+    display: none;
+    background-color: #f0efec;
+    -moz-border-radius: 9px;
+    -webkit-border-radius: 9px;
+    border-radius: 9px;
+}
+#addORupdate .bookadd table{
+    border-collapse: collapse;
+    margin-left: 1%;
+    width: 97%;
+    height:90%;
+}
+#addORupdate .bookadd table td{
+    border-right: thin solid white;
+    border-bottom: thin solid white;
+    height: 26px;
+    text-align: right;
+}
+#addORupdate .fillin{
+    width: 100%;
+    height: 100%;
+    background-color: #f0efec;
+    outline: medium;
+    border:thin solid #f0efec;
+}
+#addORupdate .fillprice {
+    width: 90%;
+    height: 100%;
+    background-color: #f0efec;
+    outline: medium;
+    border:thin solid #f0efec;
+}
